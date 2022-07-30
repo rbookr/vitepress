@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import type { DefaultTheme } from 'vitepress/theme'
 import { ref, watchEffect } from 'vue'
-import VPIconPlusSquare from './icons/VPIconPlusSquare.vue'
-import VPIconMinusSquare from './icons/VPIconMinusSquare.vue'
+/*import VPIconPlusSquare from './icons/VPIconPlusSquare.vue'*/
+/*import VPIconMinusSquare from './icons/VPIconMinusSquare.vue'*/
+
+import VPIconPlusSquare from './icons/VPIconChevronRight.vue'
+import VPIconMinusSquare from './icons/VPIconChevronDown.vue'
 import VPSidebarLink from './VPSidebarLink.vue'
 
 const props = defineProps<{
@@ -100,6 +103,7 @@ function toggle() {
 
 .items {
   overflow: hidden;
+  padding-left: 22px;
 }
 
 .VPSidebarGroup.collapsed .items {

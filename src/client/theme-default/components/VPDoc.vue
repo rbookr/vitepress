@@ -176,6 +176,6 @@ const pageName = computed(() =>
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 688px;
+  max-width: 768px;
 }
 </style>

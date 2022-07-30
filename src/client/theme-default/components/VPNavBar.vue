@@ -72,8 +72,10 @@ const { hasSidebar } = useSidebar()
     margin-right: -32px;
     padding-right: 32px;
     -webkit-backdrop-filter: saturate(50%) blur(8px);
+    /*
     backdrop-filter: saturate(50%) blur(8px);
     background: rgba(255, 255, 255, 0.7);
+    */
   }
 
   .dark .VPNavBar.has-sidebar .content {
@@ -94,8 +96,8 @@ const { hasSidebar } = useSidebar()
 .container {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: calc(var(--vp-layout-max-width) - 64px);
+  /*margin: 0 auto;*/
+  /* max-width: calc(var(--vp-layout-max-width) - 64px);*/
 }
 
 .content {
