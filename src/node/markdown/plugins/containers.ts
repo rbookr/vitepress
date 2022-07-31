@@ -26,6 +26,19 @@ export const containerPlugin = (md: MarkdownIt) => {
           : `</div>\n`
       }
     })
+    .use(container, 'class', {
+      //直接添加类的名字
+      //居中
+      validate: function (params: string) {
+        return params.trim().match(/^class\s+(.*)$/) //以style开头
+      },
+      render: (tokens: Token[], idx: number) => {
+        let m = tokens[idx].info.trim().match(/^class\s+(.*)$/)
+        return tokens[idx].nesting === 1
+          ? `<div class="${m![1]}" >\n`
+          : `</div>\n`
+      }
+    })
 }
 
 type ContainerArgs = [typeof container, string, { render: RenderRule }]
