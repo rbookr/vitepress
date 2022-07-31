@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { provide, watch } from 'vue'
-import { useRoute } from 'vitepress'
+import { nextTick,onMounted, provide, watch } from 'vue'
+import { useData,useRoute } from 'vitepress'
 import { useSidebar, useCloseSidebarOnEscape } from './composables/sidebar'
 import VPSkipLink from './components/VPSkipLink.vue'
 import VPBackdrop from './components/VPBackdrop.vue'
@@ -9,6 +9,12 @@ import VPLocalNav from './components/VPLocalNav.vue'
 import VPSidebar from './components/VPSidebar.vue'
 import VPContent from './components/VPContent.vue'
 import VPFooter from './components/VPFooter.vue'
+import Viz from  'viz.js'
+import { Module, render } from 'viz.js/full.render.js'
+
+const viz = new Viz({ Module, render });
+
+const getContentDom = query => document.querySelectorAll('.content ' + (query || ''))
 
 const {
   isOpen: isSidebarOpen,
@@ -17,7 +23,32 @@ const {
 } = useSidebar()
 
 const route = useRoute()
-watch(() => route.path, closeSidebar)
+
+function initGraphviz() {
+  const dotBlocks = getContentDom('.dot')
+    if( dotBlocks && dotBlocks.length ) {
+      for(let i =0 ;i < dotBlocks.length ;i++){
+        let element = dotBlocks[i]
+        viz.renderSVGElement(element.textContent)
+          .then( svgEle => element.parentNode?.replaceChild(svgEle,element))
+      }
+    }
+}
+
+function initPage() {
+  initGraphviz()
+}
+
+onMounted(initPage)
+
+
+watch(() => route.path, 
+    ()=>{
+      nextTick(initPage)
+      closeSidebar()
+    }
+    )
+/*watch(useData().page , initPage)*/
 
 useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 

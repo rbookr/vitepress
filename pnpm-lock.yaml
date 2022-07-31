@@ -71,6 +71,7 @@ importers:
       typescript: ^4.7.2
       vite: ^2.9.7
       vitest: ^0.14.2
+      viz.js: ^2.1.2
       vue: ^3.2.33
     dependencies:
       '@docsearch/css': 3.1.0
@@ -81,6 +82,7 @@ importers:
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.10.1
       vite: 2.9.9
+      viz.js: 2.1.2
       vue: 3.2.33
     devDependencies:
       '@rollup/plugin-alias': 3.1.5_rollup@2.57.0
@@ -3416,7 +3418,7 @@ packages:
     dev: true
 
   /require-directory/2.1.1:
-    resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=}
+    resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -4063,6 +4065,11 @@ packages:
       - stylus
       - supports-color
     dev: true
+
+  /viz.js/2.1.2:
+    resolution: {integrity: sha512-UO6CPAuEMJ8oNR0gLLNl+wUiIzQUsyUOp8SyyDKTqVRBtq7kk1VnFmIZW8QufjxGrGEuI+LVR7p/C7uEKy0LQw==}
+    deprecated: no longer supported
+    dev: false
 
   /vscode-oniguruma/1.6.2:
     resolution: {integrity: sha512-KH8+KKov5eS/9WhofZR8M8dMHWN2gTxjMsG4jd04YhpbPR91fUj7rYQ2/XjeHCJWbg7X++ApRIU9NUwM2vTvLA==}
