@@ -14,6 +14,18 @@ export const containerPlugin = (md: MarkdownIt) => {
       render: (tokens: Token[], idx: number) =>
         tokens[idx].nesting === 1 ? `<div v-pre>\n` : `</div>\n`
     })
+    .use(container, 'style', {
+      //居中
+      validate: function (params: string) {
+        return params.trim().match(/^style\s+(.*)$/) //以style开头
+      },
+      render: (tokens: Token[], idx: number) => {
+        let m = tokens[idx].info.trim().match(/^style\s+(.*)$/)
+        return tokens[idx].nesting === 1
+          ? `<div style="${m![1]}" >\n`
+          : `</div>\n`
+      }
+    })
 }
 
 type ContainerArgs = [typeof container, string, { render: RenderRule }]
