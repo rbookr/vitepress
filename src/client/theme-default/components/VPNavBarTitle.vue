@@ -1,19 +1,52 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData ,useRoute} from 'vitepress'
+import { computed } from 'vue'
 import { useSidebar } from '../composables/sidebar'
 import VPImage from './VPImage.vue'
 
 const { site, theme } = useData()
 const { hasSidebar } = useSidebar()
+
+const route = useRoute()
+
+const logo = computed( () => {
+
+    let newPath = route.path
+    if( newPath === site.value.base) //
+        return theme.value.logo || ''
+    if( theme.value.siteConfgByRoute ) {
+      for( let _config of theme.value.siteConfgByRoute ) {
+        if( newPath.startsWith(_config.start) ){
+          return _config.logo
+        }
+      }
+    }
+    return theme.value.logo
+  })
+
+const title = computed(()=>{
+
+    let newPath = route.path
+    if( newPath === site.value.base) //
+        return theme.value.siteTitle || ''
+    if( theme.value.siteConfgByRoute ) {
+      for( let _config of theme.value.siteConfgByRoute ) {
+        if( newPath.startsWith(_config.start) ){
+          return _config.title
+        }
+      }
+    }
+    return theme.value.siteTitle
+    })
+
 </script>
 
 <template>
   <div class="VPNavBarTitle" :class="{ 'has-sidebar': hasSidebar }">
     <a class="title" :href="site.base">
       <slot name="nav-bar-title-before" />
-      <VPImage class="logo" :image="theme.logo" />
-      <template v-if="theme.siteTitle">{{ theme.siteTitle }}</template>
-      <template v-else-if="theme.siteTitle === undefined">{{ site.title }}</template>
+      <VPImage class="logo" :image="logo" />
+      {{ title }}
       <slot name="nav-bar-title-after" />
     </a>
   </div>
