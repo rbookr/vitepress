@@ -41,22 +41,22 @@ provide('close-screen', closeScreen)
   }
 
   .VPNav.no-sidebar {
-    -webkit-backdrop-filter: saturate(50%) blur(8px);
-    backdrop-filter: saturate(50%) blur(8px);
-    background: rgba(255, 255, 255, 0.7);
+    /*-webkit-backdrop-filter: saturate(50%) blur(8px);*/
+    /*backdrop-filter: saturate(50%) blur(8px);*/
+    /*background: rgba(255, 255, 255, 0.7);*/
   }
 
   .dark .VPNav.no-sidebar {
-    background: rgba(36, 36, 36, 0.7);
+    /*background: rgba(36, 36, 36, 0.7);*/
   }
 
   @supports not (backdrop-filter: saturate(50%) blur(8px)) {
     .VPNav.no-sidebar {
-      background: rgba(255, 255, 255, 0.95);
+      /*background: rgba(255, 255, 255, 0.95);*/
     }
 
     .dark .VPNav.no-sidebar {
-      background: rgba(36, 36, 36, 0.95);
+      /*background: rgba(36, 36, 36, 0.95);*/
     }
   }
 }
