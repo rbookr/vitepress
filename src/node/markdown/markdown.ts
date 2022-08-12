@@ -1,5 +1,6 @@
 import MarkdownIt from 'markdown-it'
 import ejs from './plugins/ejs'
+import mathjax3 from 'markdown-it-mathjax3'
 import fencExtend from './plugins/fenc_extend'
 import { IThemeRegistration } from 'shiki'
 import { parseHeader } from '../utils/parseHeader'
@@ -88,7 +89,6 @@ export const createMarkdownRenderer = async (
       },
       base
     )
-    .use(fencExtend)
 
   // 3rd party plugins
   if (!options.attrs?.disable) {
@@ -109,6 +109,8 @@ export const createMarkdownRenderer = async (
       ...options.toc
     })
     .use(emoji)
+    .use(fencExtend)
+    .use(mathjax3)
 
   // apply user config
   if (options.config) {
