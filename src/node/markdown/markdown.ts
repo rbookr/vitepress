@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import ejs from './plugins/ejs'
 import { IThemeRegistration } from 'shiki'
 import { parseHeader } from '../utils/parseHeader'
 import { highlight } from './plugins/highlight'
@@ -69,6 +70,7 @@ export const createMarkdownRenderer = async (
 
   // custom plugins
   md.use(componentPlugin)
+    .use(ejs)
     .use(highlightLinePlugin)
     .use(preWrapperPlugin)
     .use(snippetPlugin, srcDir)

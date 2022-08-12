@@ -1,0 +1,18 @@
+利用这个把md来显示成一个mindmap
+[markmap-view - markmap docs](https://markmap.js.org/docs/packages--markmap-view)
+
+设计思路
+
+- 创建一个webcompent, 一个浮动的按钮,点一下显示一个全屏mindmap
+- 创建一个markdown插件,使用markmap-lib->`transform markdown to markmap data`
+
+
+
+两种使用方式
+
+一种在在fenc中使用它
+using fenc
+
+```markmap
+
+```
