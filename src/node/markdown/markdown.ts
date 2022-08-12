@@ -1,5 +1,6 @@
 import MarkdownIt from 'markdown-it'
 import ejs from './plugins/ejs'
+import fencExtend from './plugins/fenc_extend'
 import { IThemeRegistration } from 'shiki'
 import { parseHeader } from '../utils/parseHeader'
 import { highlight } from './plugins/highlight'
@@ -87,6 +88,7 @@ export const createMarkdownRenderer = async (
       },
       base
     )
+    .use(fencExtend)
 
   // 3rd party plugins
   if (!options.attrs?.disable) {
