@@ -106,6 +106,21 @@ kbd,
 samp {
   font-family: var(--vp-font-family-mono);
 }
+kbd {
+  display: inline-block;
+  margin: 0 0.1em;
+  padding: 0.1em 0.45em;
+  vertical-align: middle;
+  line-height: 1.5;
+  color: hsl(210, 8%, 15%);
+  text-shadow: 0 1px 0 hsl(0, 0%, 100%);
+  background-color: hsl(210, 8%, 90%);
+  border: 1px solid hsl(210, 8%, 65%);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #0c0d0e26, inset 0 1px #fff;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
 
 img,
 svg,

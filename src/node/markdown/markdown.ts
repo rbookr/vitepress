@@ -18,6 +18,7 @@ import { headingPlugin } from './plugins/headings'
 import { imagePlugin } from './plugins/image'
 import { Header } from '../shared'
 import anchor from 'markdown-it-anchor'
+import kbd from 'markdown-it-kbd'
 import attrs from 'markdown-it-attrs'
 import emoji from 'markdown-it-emoji'
 import toc from 'markdown-it-toc-done-right'
@@ -109,6 +110,7 @@ export const createMarkdownRenderer = async (
       ...options.toc
     })
     .use(emoji)
+    .use(kbd)
     .use(fencExtend)
     .use(mathjax3)
 

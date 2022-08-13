@@ -50,6 +50,7 @@ importers:
       markdown-it-attrs: ^4.1.3
       markdown-it-container: ^3.0.0
       markdown-it-emoji: ^2.0.0
+      markdown-it-kbd: ^2.2.2
       markdown-it-mathjax3: ^4.3.1
       markdown-it-toc-done-right: ^4.2.0
       markmap-common: ^0.14.0
@@ -130,6 +131,7 @@ importers:
       markdown-it-attrs: 4.1.3_markdown-it@12.3.2
       markdown-it-container: 3.0.0
       markdown-it-emoji: 2.0.0
+      markdown-it-kbd: 2.2.2
       markdown-it-mathjax3: 4.3.1
       markdown-it-toc-done-right: 4.2.0
       markmap-common: 0.14.0
@@ -3496,6 +3498,11 @@ packages:
 
   /markdown-it-emoji/2.0.0:
     resolution: {integrity: sha512-39j7/9vP/CPCKbEI44oV8yoPJTpvfeReTn/COgRhSpNrjWF3PfP/JUxxB0hxV6ynOY8KH8Y8aX9NMDdo6z+6YQ==}
+    dev: true
+
+  /markdown-it-kbd/2.2.2:
+    resolution: {integrity: sha512-J5qVHtLuxh1HTJcl5xhopiFpf6fnHIBY0OO1akGHf2KW0VwQLYhsip/bkiTJFoEZqhssxQuUBY1LO5/SbCrB6g==}
+    engines: {node: '>=6.0.0'}
     dev: true
 
   /markdown-it-mathjax3/4.3.1:
