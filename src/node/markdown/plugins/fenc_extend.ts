@@ -11,6 +11,10 @@ export default function (md: MarkdownIt): string {
     if (token.info.length >= 3 && /dot$/.test(token.info.trim())) {
       return `<pre v-pre class="dot loading">${token.content.trim()}</pre>`
     }
+    //markmap
+    else if (token.info.trim() == 'markmap') {
+      return `<pre v-pre class="markmap">${token.content}</pre>`
+    }
 
     return originalFence(tokens, idx, options, env, slf)
   }

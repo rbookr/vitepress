@@ -12,6 +12,12 @@ import VPFooter from './components/VPFooter.vue'
 import Viz from  'viz.js'
 import { Module, render } from 'viz.js/full.render.js'
 
+import { Transformer } from 'markmap-lib';
+import * as markmap from 'markmap-view';
+const { Markmap, loadCSS, loadJS } = markmap;
+
+const transformer = new Transformer();
+
 const viz = new Viz({ Module, render });
 
 const getContentDom = query => document.querySelectorAll('.content ' + (query || ''))
@@ -35,8 +41,29 @@ function initGraphviz() {
     }
 }
 
+function initMarkmap() {
+  const markmapBlocks = getContentDom('.markmap')
+  if(markmapBlocks && markmapBlocks.length){
+    for(let i = 0 ;i < markmapBlocks.length ; i++){
+      let element = markmapBlocks[i]
+      let { root, features } = transformer.transform(element.textContent);
+      let { styles, scripts } = transformer.getUsedAssets(features);
+      /*loadCSS(styles)*/
+      /*loadJS(scripts)*/
+
+      const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+// set width and height
+      svg1.setAttribute("style", "width:100%;height 500px;");
+      element.parentNode?.replaceChild(svg1,element);
+      Markmap.create(svg1,undefined,root)
+
+    }
+  }
+}
+
 function initPage() {
   initGraphviz()
+  initMarkmap()
 }
 
 onMounted(initPage)
