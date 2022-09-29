@@ -17,7 +17,15 @@ import { useData } from 'vitepress'
 import { computed } from 'vue'
 
 const props = defineProps({
-        file:String
+        file:String,
+        type: {
+            type:String,
+            default:'blob' // or tree
+        },
+        branch : {
+            type:String,
+            default:'master'
+        }
     })
 
   const { theme, page } = useData()
@@ -33,7 +41,9 @@ const props = defineProps({
             let nfile = props.file.replace('./','')
 
             npath += nfile
-            const url = pattern.replace(/:path/g, npath)
+            const url = pattern.replace(/:type/g,props.type)
+                        .replace(/:branch/g,props.branch)
+                        .replace(/:path/g, npath)
             return {url,text}
         }
   )

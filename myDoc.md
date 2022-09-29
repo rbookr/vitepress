@@ -39,7 +39,7 @@ hook fenc的渲染
 
   themeConfig: {
     toGitLink: {
-      pattern: 'https://github.com/vuejs/vitepress/blob/main/:path',
+      pattern: 'https://github.com/vuejs/vitepress/:type/:branch/:path',
       text: 'GitHub上打开这个文件'
     },
   }
@@ -49,4 +49,14 @@ hook fenc的渲染
 
 ```
 <toGitLink file="myfile.cpp" />
+```
+
+不同的类型会得到不同的地址
+
+```
+## type = blob branch = master
+https://github.com/Rainboylvx/blogData/blob/master/1.cpp
+
+## type = tree branch = master
+https://github.com/Rainboylvx/blogData/tree/master/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/tinyasync/code_first
 ```
