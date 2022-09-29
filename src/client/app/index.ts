@@ -16,6 +16,9 @@ import { dataSymbol, initData } from './data'
 import { Content } from './components/Content'
 import { ClientOnly } from './components/ClientOnly'
 
+//我写的组件
+import toGitLink from './components/toGitLink.vue'
+
 const NotFound = Theme.NotFound || (() => '404 Not Found')
 
 const VitePressApp = {
@@ -55,6 +58,7 @@ export function createApp() {
   // install global components
   app.component('Content', Content)
   app.component('ClientOnly', ClientOnly)
+  app.component('toGitLink', toGitLink)
 
   // expose $frontmatter
   Object.defineProperty(app.config.globalProperties, '$frontmatter', {

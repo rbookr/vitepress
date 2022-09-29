@@ -22,6 +22,11 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
 
+    toGitLink: {
+      pattern: 'https://github.com/vuejs/vitepress/blob/main/:path',
+      text: 'GitHub上打开这个文件'
+    },
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],

@@ -35,6 +35,7 @@ export namespace DefaultTheme {
      * be disabled.
      */
     editLink?: EditLink
+    toGitLink?: EditLink
 
     /**
      * Set custom last updated text.
