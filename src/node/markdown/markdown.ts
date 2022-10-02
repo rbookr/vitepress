@@ -43,6 +43,7 @@ export interface MarkdownOptions extends MarkdownIt.Options {
   // https://github.com/nagaozen/markdown-it-toc-done-right
   toc?: any
   externalLinks?: Record<string, string>
+  ejsdata?: any //给ejs渲染用的
 }
 
 export interface MarkdownParsedData {
@@ -73,7 +74,7 @@ export const createMarkdownRenderer = async (
 
   // custom plugins
   md.use(componentPlugin)
-    .use(ejs)
+    .use(ejs, options.ejsdata || {})
     .use(highlightLinePlugin)
     .use(preWrapperPlugin)
     .use(snippetPlugin, srcDir)

@@ -60,3 +60,23 @@ https://github.com/Rainboylvx/blogData/blob/master/1.cpp
 ## type = tree branch = master
 https://github.com/Rainboylvx/blogData/tree/master/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/tinyasync/code_first
 ```
+
+## 设置属性
+
+### ejsdata
+
+设置ejs渲染时的数据
+
+```plaintext
+  markdown: {
+    ejsdata: {
+        host:'https://rbook.roj.ac.cn/'
+    }
+  },
+```
+
+那么在markdown就可以使用
+
+```
+<%= host %>
+```

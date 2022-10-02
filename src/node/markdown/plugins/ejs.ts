@@ -9,22 +9,18 @@ import MarkdownIt from 'markdown-it'
 
 //console.log(html)
 
-function create_func(md: MarkdownIt) {
+function create_func(md: MarkdownIt, options_: any) {
   //根据 vitepress的源码
   //md.__path 代表渲染文件的路径
 
   return function ejs_render(state: any): boolean {
-    state.src = ejs.render(
-      state.src,
-      {},
-      {
-        filename: state.md.__path
-      }
-    )
+    state.src = ejs.render(state.src, options_, {
+      filename: state.md.__path
+    })
     return true
   }
 }
 
-export default function (md: MarkdownIt) {
-  md.core.ruler.before('normalize', 'ejs_format', create_func(md))
+export default function (md: MarkdownIt, options_: any) {
+  md.core.ruler.before('normalize', 'ejs_format', create_func(md, options_))
 }
