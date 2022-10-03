@@ -7,7 +7,7 @@
     <div class="toGitLink">
         <a :href="githubUrl.url" target="_blank">
         {{githubUrl.text}}
-        {{file}}
+        {{file.replace(/^\.\//,"")}}
         </a>
     </div>
 </template>
@@ -38,7 +38,7 @@ const props = defineProps({
             let lastindx = relativePath.lastIndexOf('/')
             if( lastindx != -1)
                 npath = relativePath.slice(0,lastindx+1);
-            let nfile = props.file.replace('./','')
+            let nfile = props.file.replace(/^\.\//,'')
 
             npath += nfile
             const url = pattern.replace(/:type/g,props.type)
